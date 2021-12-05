@@ -1,5 +1,7 @@
 package com.ing.zoo;
 
+import com.ing.zoo.animal.*;
+
 import java.util.Scanner;
 
 public class Zoo {
@@ -20,11 +22,25 @@ public class Zoo {
         wally.name = "wally";
         Zebra marty = new Zebra();
         marty.name = "marty";
+        Bear joe = new Bear();
+        joe.name = "joe";
+        Owl misty = new Owl();
+        misty.name = "misty";
+
+        String henkHello = commands[0] + " " + henk.name;
+        String elsaHello = commands[0] + " " + elsa.name;
+        String doraHello = commands[0] + " " + dora.name;
+        String wallyHello = commands[0] + " " + wally.name;
+        String martyHello = commands[0] + " " + marty.name;
+        String joeHello = commands[0] + " " + joe.name;
+        String mistyHello = commands[0] + " " + misty.name;
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer uw command in: ");
 
         String input = scanner.nextLine();
+
+        String unknownCommand = "Unknown command: " + input;
 
         // if input is only hello, then all the animals way hello
         if (input.equals(commands[0])) {
@@ -33,49 +49,49 @@ public class Zoo {
             dora.sayHello();
             wally.sayHello();
             marty.sayHello();
+            joe.sayHello();
+            misty.sayHello();
         }
-
-        String henkInput = commands[0] + " " + henk.name;
-        String elsaInput = commands[0] + " " + elsa.name;
-        String doraInput = commands[0] + " " + dora.name;
-        String wallyInput = commands[0] + " " + wally.name;
-        String martyInput = commands[0] + " " + marty.name;
-        String unknownCommand = "Unknown command: " + input;
 
         // if there is an specific name after the input hello, then only the animal with that name will reply
-        if (input.equals(henkInput)) {
+        if (input.equals(henkHello)) {
             henk.sayHello();
-        } else if (input.equals(elsaInput)) {
+        } else if (input.equals(elsaHello)) {
             elsa.sayHello();
-        } else if (input.equals(doraInput)) {
+        } else if (input.equals(doraHello)) {
             dora.sayHello();
-        } else if (input.equals(wallyInput)) {
+        } else if (input.equals(wallyHello)) {
             wally.sayHello();
-        } else if (input.equals(martyInput)) {
+        } else if (input.equals(martyHello)) {
             marty.sayHello();
-        } else if ((!input.equals(commands[0])) || (!input.equals(henkInput)) || (!input.equals(elsaInput)) || (!input.equals(doraInput)) || (!input.equals(wallyInput)) || (!input.equals(martyInput))) {
-            System.out.println(unknownCommand);
+        } else if (input.equals(joeHello)) {
+            joe.sayHello();
+        } else if (input.equals(mistyHello)) {
+            misty.sayHello();
         }
 
-        // eats leaves
-        if (input.equals(commands[1])) {
-            elsa.eatLeaves();
-            dora.eatLeaves();
-            marty.eatLeaves();
+        switch (input) {
+            // eats leaves
+            case "give leaves":
+                elsa.eatLeaves();
+                dora.eatLeaves();
+                marty.eatLeaves();
+                joe.eatLeaves();
+                break;
             // eats meat
-        } else if (input.equals(commands[2])) {
-            henk.eatMeat();
-            dora.eatMeat();
-            wally.eatMeat();
-        } else {
-            System.out.println(unknownCommand);
-        }
-
-        if(input.equals(commands[3])) {
-            dora.performTrick();
-            wally.performTrick();
-        } else {
-            System.out.println(unknownCommand);
+            case "give meat":
+                henk.eatMeat();
+                dora.eatMeat();
+                wally.eatMeat();
+                joe.eatMeat();
+                misty.eatMeat();
+                break;
+            // perform trick
+            case "perform trick":
+                dora.performTrick();
+                wally.performTrick();
+                misty.performTrick();
+                break;
         }
     }
 }

@@ -1,26 +1,26 @@
-package com.ing.zoo;
+package com.ing.zoo.animal;
 
 import java.util.Random;
 
-public class Tiger {
+public class Owl {
     public String name;
     public String helloText;
     public String eatText;
     public String trick;
 
-    public Tiger()
+    public Owl()
     {
     }
 
     public void sayHello()
     {
-        helloText = "rraaarww";
+        helloText = "oehoehoehoehoe";
         System.out.println(helloText);
     }
 
     public void eatMeat()
     {
-        eatText = "nomnomnom oink wubalubadubdub";
+        eatText = "nomnomnom oehoehoe";
         System.out.println(eatText);
     }
 
@@ -30,11 +30,11 @@ public class Tiger {
         int rnd = random.nextInt(2);
         if(rnd == 0)
         {
-            trick = "jumps in tree";
+            trick = "spreads wings";
         }
         else
         {
-            trick = "scratches ears";
+            trick = "flies in circles";
         }
         System.out.println(trick);
     }
