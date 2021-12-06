@@ -12,6 +12,7 @@ public class Zoo {
         commands[2] = "give meat";
         commands[3] = "perform trick";
 
+        //initialize the animals
         Lion henk = new Lion();
         henk.name = "henk";
         Hippo elsa = new Hippo();
@@ -27,6 +28,7 @@ public class Zoo {
         Owl misty = new Owl();
         misty.name = "misty";
 
+        // create a variable for the hello output
         String henkHello = commands[0] + " " + henk.name;
         String elsaHello = commands[0] + " " + elsa.name;
         String doraHello = commands[0] + " " + dora.name;
@@ -35,11 +37,14 @@ public class Zoo {
         String joeHello = commands[0] + " " + joe.name;
         String mistyHello = commands[0] + " " + misty.name;
 
+        // scanner to enter a value
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer uw command in: ");
 
+        // nextLine so the answer can be behind the question and not on the next rule
         String input = scanner.nextLine();
 
+        // to show that the command is not recognized
         String unknownCommand = "Unknown command: " + input;
 
         // if input is only hello, then all the animals way hello
@@ -70,6 +75,7 @@ public class Zoo {
             misty.sayHello();
         }
 
+        // switch between the actions from the input
         switch (input) {
             // eats leaves
             case "give leaves":
